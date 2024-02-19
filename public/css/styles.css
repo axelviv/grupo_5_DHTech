@@ -415,6 +415,7 @@ body#index {
     border: 1px solid rgb(102, 102, 102);
     border-radius: 1rem;
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 #eliminar-detail {
@@ -425,6 +426,7 @@ body#index {
     padding: 0.3rem;
     border: 1px solid rgb(102, 102, 102);
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 

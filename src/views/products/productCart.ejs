@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <%- include('./partials/head.ejs')%>
+    <%- include('../partials/head.ejs')%>
     <title>Carrito de Compras</title>
     <!-- <link rel="stylesheet" href="./css/productCart.css"> -->
     <link rel="stylesheet" href="/css/styles.css">   
@@ -10,14 +10,14 @@
 
 <body id="product-cart">
     <!-- Header -->
-    <%- include('./partials/header.ejs')%>
+    <%- include('../partials/header.ejs')%>
 
     
     <main id="product-cart">
         <section id="productBox">
             <article>
                 <div class="contenedorimagen-cart">
-                    <div class="imagen"><img src="./images/cpuCarrito.jpg" alt="cpu"></div>
+                    <div class="imagen"><img src="/images/cpuCarrito.jpg" alt="cpu"></div>
                 </div>
                 <div class="contenido">
                     <ul>
@@ -41,7 +41,7 @@
             </article>
             <article>
                 <div class="contenedorimagen-cart">
-                    <div class="imagen"><img src="./images/monitorCarrito.png" alt="monitor"></div>
+                    <div class="imagen"><img src="/images/monitorCarrito.png" alt="monitor"></div>
                 </div>
                 <div class="contenido">
                     <ul>
@@ -65,7 +65,7 @@
             </article>
             <article>
                 <div class="contenedorimagen-cart">
-                    <div class="imagen"><img src=".//images/motherCarrito.jpg" alt="mother"></div>
+                    <div class="imagen"><img src="/images/motherCarrito.jpg" alt="mother"></div>
                 </div>
                 <div class="contenido">
                     <ul>
@@ -109,9 +109,9 @@
 
   
     <!-- footer -->
-    <%- include('./partials/footer.ejs')%>
+    <%- include('../partials/footer.ejs')%>
     
-    <%- include('./partials/wsp') %>
+    <%- include('../partials/wsp') %>
 
     <script src="../public/js/productCart.js"></script>
 </body>

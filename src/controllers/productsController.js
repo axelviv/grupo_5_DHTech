@@ -1,38 +1,46 @@
-const products = require('../models/data/products.json');
+const products = require('../data/products.json');
 const product = require('../models/productsModel.js');
 
 // Leer JSON
 const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '../models/data/products.json');
+const productsFilePath = path.join(__dirname, '../data/products.json');
 const productsFS = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const controller = {
     mostrarProducts : (req, res) => {
-        return res.render('products.ejs', {products})
+        return res.render('products/products.ejs', {products})
     },
 
-     // Categorias //
-     mostrarMonitores : (req, res) => {
-        return res.render('categMonitores.ejs', {products})
+    mostrarProductCart : (req, res) => {
+        return res.render('products/productCart.ejs')
     },
 
-    mostrarPlacasDeVideo : (req, res) => {
-        return res.render('categPlacasDeVideo.ejs', {products})
-    },
+     // Categorias // 
+    mostrarCategoria : (req, res) => {
 
-    mostrarProcesadores : (req, res) => {
-        return res.render('categProcesadores.ejs', {products})
-    },
+        //Definir categorias existentes
+        const categorias = ['monitores', 'placasdevideo', 'procesadores', 'almacenamiento'];
 
-    mostrarAlmacenamiento : (req, res) => {
-        return res.render('categAlmacenamiento.ejs', {products})
+        //Guardar y pasar a minusculas el parametro
+        const categoriaParam = req.params.categoria.toLowerCase();
+
+        //Buscar el parametro dentro de las categorias existentes
+        if (categorias.includes(categoriaParam))
+        {
+            //Renderizar la vista - Pasarle los productos y categoria filtrar
+            return res.render(`products/categFiltradas.ejs`, {products, categoriaParam});          
+        }
+        else
+        {
+            return res.send('no existe el producto');
+        };
     },
     //----------------//
 
     createProduct : (req, res) => {
-        return res.render('productCreation.ejs');
+        return res.render('products/productCreation.ejs');
     },
 
     saveNewProduct : (req, res) => {
@@ -68,7 +76,7 @@ const controller = {
         
         if (producto)
         {
-            return res.render('productEdit.ejs', {producto});
+            return res.render('products/productEdit.ejs', {producto});
         }
         else
         {
@@ -106,7 +114,7 @@ const controller = {
         
        if (producto)
        {
-           return res.render('productDetail.ejs', {producto});
+           return res.render('products/productDetail.ejs', {producto});
        }
        else
        {

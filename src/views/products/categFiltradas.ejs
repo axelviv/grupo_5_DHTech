@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
     <title>Productos</title>
     <!-- <link rel="stylesheet" href="./css/productDetail.css"> -->
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 
     <main id="products-main">
 
@@ -20,7 +20,7 @@
         <section>
             <% for (i=0; i < products.length; i++){ %>
         
-                <% if (products[i].categoria=="Placas de Video" ){ %>
+                <% if (products[i].categoria.toLowerCase() == categoriaParam){ %>
                     <article>
                         <div class="stock-detail-products">
 
@@ -50,8 +50,8 @@
 
 
 
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
 
-    <%- include('./partials/wsp') %>
+    <%- include('../partials/wsp') %>
 </body>
 </html>

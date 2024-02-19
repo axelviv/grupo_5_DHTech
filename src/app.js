@@ -24,23 +24,15 @@ app.use(methodOverride('_method'));
 /* Llamamos al archivo de ruotes correspondiente */
 const rutaIndex = require('./routers/indexRouter.js');
 const rutaProducts = require('./routers/productsRouter.js');
-const rutaProductCart = require('./routers/productCartRouter.js');
-const rutaRegister = require('./routers/registerRouter.js');
-const rutaLogin = require('./routers/loginRouter.js');
+const rutaUsers = require('./routers/usersRouter.js');
 const { log } = require('node:console');
 
 /* Link con app.use a la variable registerRouter */
 
 
 app.use('/', rutaIndex);
-
 app.use('/products', rutaProducts);
-
-app.use('/productCart', rutaProductCart);
-
-app.use('/register', rutaRegister);
-
-app.use('/login', rutaLogin);
+app.use('/users', rutaUsers);
 
 app.use((req, res, next) => {
     res.status(404).render('notFound')

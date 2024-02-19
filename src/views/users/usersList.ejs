@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Usuarios:</h1>
+
+    <section>
+        <% for (i = 0; i < users.length; i++){ %>
+            <article>              
+                
+                <img src="<%= users[i].avatar %>" alt="">
+                <h2><%= users[i].first_name %></h2>
+                <h2><%= users[i].last_name %></h2>
+                <h2><%= users[i].location %></h2>
+                <h2><%= users[i].email %></h2>
+                <h3> $ <%= users[i].type %></h3>                
+                              
+            </article>
+            <% } %>
+    </section>
+
+</body>
+</html>

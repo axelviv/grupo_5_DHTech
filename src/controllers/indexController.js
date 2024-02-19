@@ -1,5 +1,5 @@
 
-const products = require('../models/data/products.json');
+const products = require('../data/products.json');
 
 const controller = {
     mostrarIndex : (req, res) => {

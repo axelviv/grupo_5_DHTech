@@ -4,7 +4,7 @@
 // const productsFilePath = path.join(__dirname, '/data/products.json');
 // const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const products = require('./data/products.json');
+const products = require('../data/products.json');
 
 const modelProduct = {
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <!-- <link rel="stylesheet" href="./css/productDetail.css"> -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="body-crear-producto">
+    
+    <%- include('../partials/header') %>
+
+    <main id="main-crear-producto">
+        <h1>Registro de nuevo usuario</h1>
+
+        <form action="/products/create" method="POST" id="form-create-product" enctype="">
+            <div>
+                <label for="">Nombre:</label>
+                <input type="text" name="nombre_user" id="" placeholder="Ingrese su nombre" required>
+            </div>
+            <div>
+                <label for="">Apellido:</label>
+                <input type="text" name="apellido_user" id="" placeholder="Ingrese su apellido" required>
+            </div>
+
+            <div>
+                <label for="">Email:</label>
+                <input type="email" name="email_user" id="" placeholder="Ingrese su dirección de correo electrónico" required>
+            </div>
+
+            <div>
+                <label for="">Password:</label>
+                <input type="password" name="password_user" id="" placeholder="Ingrese una contraseña" required>
+            </div>        
+                       
+            <!-- <div id="pc-subir">
+                <label for="">Subir imágenes:</label>
+                <input type="file" name="subir-imagenes" id="" accept=".jpg, .png" multiple required>
+            </div> -->
+
+            <div>
+                <label for="">Avatar:</label>
+                <input type="text" name="image" id="" placeholder="Ingresa la url de la imagen..." required>
+            </div>
+            
+            <section class="form-check2">
+                <input type="checkbox" id="terminosCondiciones" name="terminosCondiciones" required>
+                <label for="terminosCondiciones">Acepto los Terminos y Condiciones</label>
+            </section>
+            <div class="button-register">
+                <button type="submit" class="botonReg-log">Registrarse</button>
+            </div>
+            <label class="form-check">Registrarse con:</label>
+            <section class="login-auto">
+                <button type="button" onclick="registerWithGoogle()" class="icono"><i class="fa-brands fa-google"></i> Google</button>
+                <button type="button" onclick="registerWithFacebook()" class="icono"><i class="fa-brands fa-facebook"></i> Facebook</button>
+            </section>
+            <label class="form-check"> Ya tienes una Cuenta?</label>
+            <div class="button-register">
+                <button onclick="window.location.href='login'" class="botonReg-log">Iniciar Sesion</button>
+            </div>
+        </form>
+    </main>
+
+
+    <%- include('../partials/footer') %>
+
+    <%- include('../partials/wsp') %>
+</body>
+</html>
