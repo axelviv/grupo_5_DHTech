@@ -13,7 +13,7 @@
     <main id="main-crear-producto">
         <h1>Registro de nuevo usuario</h1>
 
-        <form action="/products/create" method="POST" id="form-create-product" enctype="">
+        <form action="/users/register" method="POST" id="form-create-product" enctype="multipart/form-data">
             <div>
                 <label for="">Nombre:</label>
                 <input type="text" name="nombre_user" id="" placeholder="Ingrese su nombre" required>
@@ -33,15 +33,15 @@
                 <input type="password" name="password_user" id="" placeholder="Ingrese una contraseña" required>
             </div>        
                        
-            <!-- <div id="pc-subir">
-                <label for="">Subir imágenes:</label>
-                <input type="file" name="subir-imagenes" id="" accept=".jpg, .png" multiple required>
-            </div> -->
+            <div id="pc-subir">
+                <label for="">Subir imágen de Avatar:</label>
+                <input type="file" name="subir-imagenes" id="" accept=".jpg, .jpeg, .png" multiple required>
+            </div>
 
-            <div>
+            <!-- <div>
                 <label for="">Avatar:</label>
                 <input type="text" name="image" id="" placeholder="Ingresa la url de la imagen..." required>
-            </div>
+            </div> -->
             
             <section class="form-check2">
                 <input type="checkbox" id="terminosCondiciones" name="terminosCondiciones" required>

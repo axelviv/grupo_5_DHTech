@@ -14,7 +14,7 @@ const controller = {
     },
 
     saveNewUser : (req, res) => {
-       
+        res.redirect('/users');
     },
 
   
