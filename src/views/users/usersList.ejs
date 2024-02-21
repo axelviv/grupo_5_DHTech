@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<head>    
+    <%- include('../partials/head') %>
+    <title>Lista de users</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-    <h1>Lista de Usuarios:</h1>
 
-    <section>
-        <% for (i = 0; i < users.length; i++){ %>
-            <article>              
-                
-                <img src="<%= users[i].avatar %>" alt="">
-                <h2><%= users[i].first_name %></h2>
-                <h2><%= users[i].last_name %></h2>
-                <h2><%= users[i].location %></h2>
-                <h2><%= users[i].email %></h2>
-                <h3> $ <%= users[i].type %></h3>                
-                              
-            </article>
-            <% } %>
-    </section>
+<body id="users_body">
 
+    <%- include('../partials/header') %>
+
+    <main id="users_main">
+        <h1>Lista de Usuarios:</h1>
+
+        <section id="users_menu">            
+            
+            <div id="register_user">
+                <a href="/users/register">REGISTRARSE</a>
+            </div>
+            
+            <div id="login_user">
+                <a href="/users/login">LOGIN</a>
+            </div>
+
+        </section>
+
+        <section id="users_section">
+            <% for (i = 15; i < users.length; i++){ %>
+                <article>
+        
+                    <img src="/images/users/<%= users[i].avatar %>" alt="">
+
+                    <div id="users_info">
+                        <h2>Nombre: <%= users[i].first_name %></h2>
+                        <h2>Apellido: <%= users[i].last_name %></h2>
+                        <h2>Email: <%= users[i].email %></h2>
+                        <h2>Tipo: <%= users[i].type %></h2>
+                    </div>
+        
+                </article>
+                <% } %>
+        </section>
+    </main>
+
+
+    <%- include('../partials/footer') %>
+
+    <%- include('../partials/wsp') %>
 </body>
 </html>

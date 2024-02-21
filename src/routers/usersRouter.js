@@ -4,6 +4,7 @@ const path = require('path');
 
 //Multer--------------------------------------------------------------------
 const multer = require('multer');
+
 const storage = multer.diskStorage({
     //Donde se guardara la imagen
     destination: (req, file, cb) => {
@@ -34,6 +35,6 @@ router.get('/login', usersController.loginUser);
 router.get('/register', usersController.createUser);
 
 //Se pasa el upload creado con multer como segundo argumento, single porque es un solo archivo y dentro el name del input del formulario 
-router.post('/register', upload.single('subir-imagenes'), usersController.saveNewUser);
+router.post('/register', upload.single('image_user'), usersController.saveNewUser);
 
 module.exports = router;

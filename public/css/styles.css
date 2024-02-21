@@ -1018,12 +1018,18 @@ label {
 
 #main-register .form-check2 {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     width: 100%;
 }
 
 
 /* Estilo para Botones Registro, Login y iconos */
+
+#register_options {
+    width: 100%;
+    margin-bottom: 1rem;
+}
 
 .botonReg-log{
     background-color: #3483FA;
@@ -1043,11 +1049,6 @@ label {
     font-family: 'Lato', sans-serif;
 }
 
-.button-register {
-    display: flex;
-    justify-content: space-around;
-}
-
 .login-auto{
     text-align: center;
     align-items: center;
@@ -1065,6 +1066,10 @@ label {
     color: white;
     background-color: rgb(55, 206, 206);
     cursor: pointer;
+}
+
+#main-crear-producto p {
+    margin-bottom: 2rem;
 }
 
 
@@ -1098,7 +1103,7 @@ label {
     align-items: center;
 }
 
-#main-crear-producto div:not(#pc-syr) {
+#main-crear-producto div:not(#pc-syr, #register_options) {
     background-color: #eae7de;
     padding: 10px;
     margin: 10px;
@@ -1154,6 +1159,10 @@ div textarea {
     font-family: 'Lato', sans-serif;
 }
 
+#volver_productos {
+    margin-top: 1.5rem;
+}
+
 
 /* ------------------------------ Secciones de Productos------------------------------ */
 
@@ -1172,12 +1181,23 @@ div textarea {
 }
 
 #products-main #Agregar-Producto {
-    margin: 0 2%;
-    text-align: end;
+    display: inline;
+    margin-left: 20%;
+    padding: 0.3rem 0.3rem;
+    background-color: rgb(55, 206, 206);
+    border: 2px solid rgb(55, 206, 206);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    transition: all 1000ms;
 }
 
+#products-main #Agregar-Producto:hover {
+    background-color: rgb(0, 255, 255);
+    border: 5px solid white;
+} 
+
 #products-main #Agregar-Producto a {
-    color: #04eca7;
+    color: white;
 }
 
 #products-main h1 {
@@ -1245,6 +1265,104 @@ div textarea {
     display: flex;
     margin: auto;
 }
+
+
+/* ------------------------------ Lista de Usuarios------------------------------ */
+
+
+#users_main {
+    margin: auto;
+    margin-top: 20vh;
+    background-color: #eae7de;
+    width: 90%;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    border-right: 1px solid rgb(204, 203, 203);
+    border-bottom: 1px solid rgb(204, 203, 203);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.15);
+}
+
+#users_main h1 {
+    text-align: center;
+    margin: 2rem;
+}
+
+#users_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+
+#users_main #register_user, #login_user {
+    display: inline;
+    margin: 1rem 0.2rem;
+    display: flex;
+    background-color: rgb(55, 206, 206);
+    border: 2px solid rgb(55, 206, 206);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    justify-content: center;
+    transition: all 1000ms;
+}
+
+#users_main #register_user:hover, #login_user:hover {
+    background-color: rgb(0, 255, 255);
+    border: 5px solid white;
+}
+
+#users_main #register_user a, #login_user a {
+    color: white;
+    margin: 0 2rem;    
+}
+
+#users_section {    
+    width: 100%;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+#users_section article {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    border-right: 1px solid rgb(204, 203, 203);
+    border-bottom: 1px solid rgb(204, 203, 203);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+#users_section img {
+    width: 8rem;
+    height: 10rem;
+    object-fit: cover;
+    object-position: top;
+    margin: 1rem 1rem;
+    margin-right: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    border-right: 1px solid rgb(204, 203, 203);
+    border-bottom: 1px solid rgb(204, 203, 203);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.15);
+}
+
+#users_info {
+    margin-top: 1.2rem;
+    max-width: 40%;
+    word-wrap: break-word;
+
+}
+
+#users_info h2 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
 
 
 
@@ -1512,5 +1630,31 @@ div textarea {
     #products-main article h2 {
         font-size: 1.5rem;
     }
+
+    #products-main #Agregar-Producto {
+        margin-left: 70%;
+    }
+
+
+/* ------------------------------ Lista de Usuarios------------------------------ */
+
+    #users_main {
+        width: 40%;
+    }
+
+    #users_section article {
+        width: 80%;
+    }
+
+    #users_section img {
+        width: 10rem;
+        margin-right: 3rem;
+    }
+
+    #users_info h2 {
+        font-size: 1.2rem;
+    }
+
+
 
 }

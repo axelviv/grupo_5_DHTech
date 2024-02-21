@@ -35,30 +35,43 @@
                        
             <div id="pc-subir">
                 <label for="">Subir imágen de Avatar:</label>
-                <input type="file" name="subir-imagenes" id="" accept=".jpg, .jpeg, .png" multiple required>
+                <input type="file" name="image_user" id="" accept=".jpg, .jpeg, .png" multiple>
             </div>
 
             <!-- <div>
                 <label for="">Avatar:</label>
                 <input type="text" name="image" id="" placeholder="Ingresa la url de la imagen..." required>
             </div> -->
+
+            <div>
+                <label for="">Tipo:</label>
+                <select name="user_type" id="" required>
+                    <option value="" selected disabled>Selecciona una categoría</option>
+                    <option value="user">Usuario</option>
+                    <option value="admin">Administrador</option>              
+                </select>
+            </div>
             
             <section class="form-check2">
-                <input type="checkbox" id="terminosCondiciones" name="terminosCondiciones" required>
                 <label for="terminosCondiciones">Acepto los Terminos y Condiciones</label>
+                <input type="checkbox" id="terminosCondiciones" name="terminosCondiciones" required>
             </section>
-            <div class="button-register">
-                <button type="submit" class="botonReg-log">Registrarse</button>
+
+            <div id="register_options">
+                <div class="button-register">
+                    <button type="submit" class="botonReg-log">Registrarse</button>
+                    <label class="form-check">Registrarse con:</label>
+                    
+                    <section class="login-auto">
+                        <button type="button" onclick="registerWithGoogle()" class="icono"><i class="fa-brands fa-google"></i> Google</button>
+                        <button type="button" onclick="registerWithFacebook()" class="icono"><i class="fa-brands fa-facebook"></i> Facebook</button>
+                    </section>
+                </div>
             </div>
-            <label class="form-check">Registrarse con:</label>
-            <section class="login-auto">
-                <button type="button" onclick="registerWithGoogle()" class="icono"><i class="fa-brands fa-google"></i> Google</button>
-                <button type="button" onclick="registerWithFacebook()" class="icono"><i class="fa-brands fa-facebook"></i> Facebook</button>
-            </section>
-            <label class="form-check"> Ya tienes una Cuenta?</label>
-            <div class="button-register">
-                <button onclick="window.location.href='login'" class="botonReg-log">Iniciar Sesion</button>
-            </div>
+
+            <p id="logueate"><a href="/users/login">¿Ya tienes una cuenta? LOGUEATE</a></p>
+            <p><a href="/users/">Volver al listado de USUARIOS</a></p>
+            
         </form>
     </main>
 

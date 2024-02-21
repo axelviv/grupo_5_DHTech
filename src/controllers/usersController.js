@@ -1,5 +1,12 @@
 const users = require('../data/users.json');
 
+// Leer JSON
+const fs = require('fs');
+const path = require('path');
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const usersFS = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+
 const controller = {
     mostrarUsers : (req, res) => {
         return res.render('users/usersList.ejs', {users})
@@ -14,7 +21,41 @@ const controller = {
     },
 
     saveNewUser : (req, res) => {
-        res.redirect('/users');
+
+        //Preguntar si existe el file que genera multer con la información de los archivos cargados en el formulario para validar que se haya subido la imagen
+        if (req.file)
+        {
+            // Filtrar lo que se quiere capturar del req.body
+            let newUser = {
+               id: users.length + 1,
+               first_name: req.body.nombre_user,
+               last_name: req.body.apellido_user,
+               email: req.body.email_user,
+               password: req.body.password_user,
+               // Extraer del file, el nombre que recibe el archivo por parte de multer
+               avatar: req.file.filename,
+               type: req.body.user_type,
+           };
+    
+           // Agregar a lo leido en el JSON lo que se capturo del req.body
+           usersFS.push(newUser);
+    
+           // Convertir en JSON
+           let newUsersJSON = JSON.stringify(usersFS);
+           
+           // Escribir en el JSON
+           fs.writeFileSync(usersFilePath, newUsersJSON);
+    
+           // Redireccionar solo después de una escritura exitosa
+           res.redirect('/users');
+        }
+        else
+        {
+            res.send('Debes cargar una imagen de avatar');
+        }
+            
+
+       
     },
 
   
