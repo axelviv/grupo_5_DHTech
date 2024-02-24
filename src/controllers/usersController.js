@@ -1,5 +1,7 @@
 const users = require('../data/users.json');
 
+const bcrypt = require('bcryptjs');
+
 // Leer JSON
 const fs = require('fs');
 const path = require('path');
@@ -31,7 +33,7 @@ const controller = {
                first_name: req.body.nombre_user,
                last_name: req.body.apellido_user,
                email: req.body.email_user,
-               password: req.body.password_user,
+               password: bcrypt.hashSync(req.body.password_user, 10),
                // Extraer del file, el nombre que recibe el archivo por parte de multer
                avatar: req.file.filename,
                type: req.body.user_type,
