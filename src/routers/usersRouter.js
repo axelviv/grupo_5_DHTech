@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const usersController = require('../controllers/usersController.js')
+const multer = require('multer');
+const { body } = require('express-validator');
+
 
 //Multer--------------------------------------------------------------------
-const multer = require('multer');
 
 const storage = multer.diskStorage({
     //Donde se guardara la imagen
@@ -12,7 +15,6 @@ const storage = multer.diskStorage({
     },
     //Nombre que tendra la imagen
     filename: (req, file, cb) => {
-        console.log(file);
         const newFilename = 'avatar-' + Date.now() + path.extname(file.originalname);
         cb(null, newFilename);
     }
@@ -23,7 +25,14 @@ const upload = multer({ storage: storage});
 
 //--------------------------------------------------------------------------
 
-const usersController = require('../controllers/usersController.js')
+// Validaciones ---------------------
+
+const validarFormulario = [
+    body('nombre_user').notEmpty().withMessage('Debes ingresar un nombre'),
+    body('apellido_user').notEmpty().withMessage('Debes ingresar un apellido'),
+    body('email_user').isEmail().withMessage('Debes ingresar un email valido'),
+];
+
 
 // Lista de usuarios
 router.get('/', usersController.mostrarUsers);
@@ -35,6 +44,6 @@ router.get('/login', usersController.loginUser);
 router.get('/register', usersController.createUser);
 
 //Se pasa el upload creado con multer como segundo argumento, single porque es un solo archivo y dentro el name del input del formulario 
-router.post('/register', upload.single('image_user'), usersController.saveNewUser);
+router.post('/register', upload.single('image_user'), validarFormulario, usersController.saveNewUser);
 
 module.exports = router;

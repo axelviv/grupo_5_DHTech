@@ -14,18 +14,27 @@
         <h1>Registro de nuevo usuario</h1>
 
         <form action="/users/register" method="POST" id="form-create-product" enctype="multipart/form-data">
+            
+            <!-- Validación -->
+            <% if (locals.errors && locals.errors.length > 0) {
+                errors.forEach(error => { %>
+                    <p id="userRegister-errors"><%= error.msg %></p>
+                <% });
+            } %>
+            
+
             <div>
                 <label for="">Nombre:</label>
-                <input type="text" name="nombre_user" id="" placeholder="Ingrese su nombre" required>
+                <input type="text" name="nombre_user" id="" placeholder="Ingrese su nombre" value="<%= locals.anterior && anterior.nombre_user ? anterior.nombre_user : '' %>">
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input type="text" name="apellido_user" id="" placeholder="Ingrese su apellido" required>
+                <input type="text" name="apellido_user" id="" placeholder="Ingrese su apellido" value="<%= locals.anterior && anterior.apellido_user ? anterior.apellido_user : '' %>">
             </div>
 
             <div>
                 <label for="">Email:</label>
-                <input type="email" name="email_user" id="" placeholder="Ingrese su dirección de correo electrónico" required>
+                <input type="text" name="email_user" id="" placeholder="Ingrese su dirección de correo electrónico" value="<%= locals.anterior && anterior.email_user ? anterior.email_user : '' %>">
             </div>
 
             <div>
